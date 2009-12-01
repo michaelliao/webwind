@@ -1,0 +1,17 @@
+#summary Download WebWind
+
+= Download =
+
+You can download WebWind binary and source code from: [http://code.google.com/p/webwind/downloads/list]
+
+And put the `WebWind.jar` into `/WEB-INF/lib/`.
+
+To get the latest source code, please check out the source code from SVN: 
+[http://webwind.googlecode.com/svn/trunk/WebWind].
+
+= Dependencies =
+
+WebWind depends on [http://commons.apache.org/logging/ Commons Logging] only.
+
+Based on your IoC container, you may need [http://code.google.com/p/google-guice/ Guice] 
+or [http://www.springsource.org/ Spring]. See more information of [DeveloperIoC choose an IoC container]

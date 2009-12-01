@@ -1,0 +1,17 @@
+#summary Quick start of WebWind
+
+= Quick Start =
+
+You can get the demo source code of WebWind from 
+[http://webwind.googlecode.com/svn/trunk/WebWindDemo]. Run ant to build the 
+project and get the `sample.war` in `dist` directory. Or you can download the 
+`sample.war` from [http://webwind.googlecode.com/files/sample.war].
+
+= Deploy and Run =
+
+Deploy the war file in your favorite Java web server such as Tomcat, Resin, 
+Jetty, etc. Run server and see sample pages in browser:
+
+http://webwind.googlecode.com/svn/wiki/Sample.png
+
+Note that you may change the port of URL.
