@@ -10,7 +10,7 @@ The method you defined to handle URL must have following requirements:
 
   * It must be `public`, it must not be `static`.
   * It must return `void`, `String` or `org.expressme.wind.Renderer`.
-  * Its arguments must be supported by WebWind. See [ExpressWindMapping#Supported_Types_of_Arguments Supported types of arguments].
+  * Its arguments must be supported by WebWind. See [DeveloperMapping#Supported_Types_of_Arguments Supported types of arguments].
   * The number of arguments must be equals to the number of parameters in URL.
 
 Method can throw any type of exception.

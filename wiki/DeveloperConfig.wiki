@@ -49,7 +49,7 @@ The parameter `container` is used to specify your IoC container. WebWind
 supports two build-in IoC containers `Spring` and `Guice`.
 
 If you want to use other IoC containers, you can specify the full class name. 
-See [ExpressWindExtension#Integration_of_3rd-part_IoC_Container how to integrate other IoC containers].
+See [DeveloperExtension#Integration_of_3rd-part_IoC_Container how to integrate other IoC containers].
 
 The parameter `template` is used to specify how to render the web page. WebWind 
 supports two build-in templates `Jsp` and `Velocity`.
@@ -58,7 +58,7 @@ The `Jsp` is the default template. If you specify [http://velocity.apache.org/ V
 as template engine, another `velocity.properties` file is needed and must be put in `/WEB-INF/`.
 
 If you want to use other template engine such as [http://freemarker.sourceforge.net/ FreeMarker], 
-see [ExpressWindExtension#Integration_of_3rd-part_Template_Engine how to integrate other template engines].
+see [DeveloperExtension#Integration_of_3rd-part_Template_Engine how to integrate other template engines].
 
 `<load-on-startup>` is the standard option in Servlet configurations. Setting to 
 `0` to make web server initialize the Servlet on startup immediately.
@@ -91,7 +91,7 @@ be put in `/WEB-INF/`.
 
 That's all configurations! No extra configuration files!
 
-Continue with first [ExpressWindHello 'Hello, world'] application.
+Continue with first [DeveloperHello 'Hello, world'] application.
 
 == Alternative Declaration ==
 
