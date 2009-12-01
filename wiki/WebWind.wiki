@@ -22,6 +22,19 @@ Unlike [http://struts.apache.org/ Struts] or other MVC frameworks, WebWind
 does not require any particular interface known as `Action` or `Controller`. 
 You can define your own methods to handle URL you defined:
 
-http://webwind.googlecode.com/svn/wiki/Blog.png
+{{{
+public class Blog {
+
+    @Mapping("/hello/$1")
+    public String hello(String name) {
+        return "<h1>Hello, " + name + "</h1>";
+    }
+
+    @Mapping("/"
+    public Renderer index() throws Exception {
+        return new TemplateRenderer("/index.jsp");
+    }
+}
+}}}
 
 See [Developer Developer's Guide] to get more details about WebWind.
