@@ -7,6 +7,11 @@ import org.apache.commons.logging.LogFactory;
 import org.expressme.webwind.container.ContainerFactory;
 import org.expressme.webwind.template.TemplateFactory;
 
+/**
+ * Utils for create ContainerFactory, TemplateFactory, etc.
+ * 
+ * @author Michael Liao (askxuefeng@gmail.com)
+ */
 class Utils {
 
     static final Log log = LogFactory.getLog(Utils.class);

@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
@@ -23,7 +24,7 @@ import org.apache.commons.fileupload.util.Streams;
  * 
  * @author Michael Liao (askxuefeng@gmail.com)
  */
-public class MultipartHttpServletRequest extends javax.servlet.http.HttpServletRequestWrapper {
+public class MultipartHttpServletRequest extends HttpServletRequestWrapper {
 
     final HttpServletRequest target;
     final Map<String, List<FileItemStream>> fileItems;

@@ -1,4 +1,4 @@
 /**
- * Main package of Express-Wind that contains useful web components.
+ * Main package of WebWind that contains useful web components.
  */
 package org.expressme.webwind;

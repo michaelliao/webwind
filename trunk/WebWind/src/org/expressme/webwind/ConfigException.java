@@ -1,5 +1,10 @@
 package org.expressme.webwind;
 
+/**
+ * If any configuration is incorrect.
+ * 
+ * @author Michael Liao (askxuefeng@gmail.com)
+ */
 public class ConfigException extends IllegalArgumentException {
 
     public ConfigException() {
