@@ -31,7 +31,7 @@ public abstract class Renderer {
     /**
      * Render the output of http response.
      * 
-     * @Param context ServletContext object.
+     * @param context ServletContext object.
      * @param request HttpServletRequest object.
      * @param response HttpServletResponse object.
      * @throws Exception If any Exception occur.
