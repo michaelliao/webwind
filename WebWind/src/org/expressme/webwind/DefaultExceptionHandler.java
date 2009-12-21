@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DefaultExceptionHandler implements ExceptionHandler {
 
+    /**
+     * Handle exception that print stack trace on HTML page.
+     */
     public void handle(HttpServletRequest request, HttpServletResponse response, Exception e) throws Exception {
         PrintWriter pw = response.getWriter();
         pw.write("<html><head><title>Exception</title></head><body><pre>");

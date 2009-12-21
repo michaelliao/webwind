@@ -6,6 +6,11 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+/**
+ * Factory for all converters.
+ * 
+ * @author Michael Liao (askxuefeng@gmail.com)
+ */
 public class ConverterFactory {
 
     private final Log log = LogFactory.getLog(getClass());

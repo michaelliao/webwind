@@ -31,7 +31,7 @@ import org.expressme.webwind.template.TemplateFactory;
  * 
  * @author Michael Liao (askxuefeng@gmail.com)
  */
-class Dispatcher  {
+class Dispatcher {
 
     private final Log log = LogFactory.getLog(getClass());
 
@@ -271,29 +271,28 @@ class Dispatcher  {
     }
 
     void handleResult(HttpServletRequest request, HttpServletResponse response, Object result) throws Exception {
-        if (result!=null) {
-            if (result instanceof Renderer) {
-                Renderer r = (Renderer) result;
-                r.render(this.servletContext, request, response);
-            }
-            else if (result instanceof String) {
-                String s = (String) result;
-                if (s.startsWith("redirect:")) {
-                    String redirect = s.substring("redirect:".length());
-                    response.sendRedirect(redirect);
-                }
-                if (s.startsWith("script:")) {
-                    String script = s.substring("script:".length());
-                    new JavaScriptRenderer(script).render(servletContext, request, response);
-                }
-                else {
-                    new TextRenderer(s).render(servletContext, request, response);
-                }
-            }
-            else {
-                throw new ServletException("Cannot handle result with type '" + result.getClass().getName() + "'.");
-            }
+        if (result==null)
+            return;
+        if (result instanceof Renderer) {
+            Renderer r = (Renderer) result;
+            r.render(this.servletContext, request, response);
+            return;
         }
+        if (result instanceof String) {
+            String s = (String) result;
+            if (s.startsWith("redirect:")) {
+                response.sendRedirect(s.substring("redirect:".length()));
+                return;
+            }
+            if (s.startsWith("script:")) {
+                String script = s.substring("script:".length());
+                new JavaScriptRenderer(script).render(servletContext, request, response);
+                return;
+            }
+            new TextRenderer(s).render(servletContext, request, response);
+            return;
+        }
+        throw new ServletException("Cannot handle result with type '" + result.getClass().getName() + "'.");
     }
 
     public void destroy() {
