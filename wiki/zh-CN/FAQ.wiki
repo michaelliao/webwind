@@ -1,0 +1,140 @@
+#summary Web FAQ
+
+= FAQ =
+
+以下列出了可能遇到的常见问题。
+
+== 如何访问Servlet对象 ==
+
+所有的Servlet对象（ServletContext，HttpSession，HttpServletRequest，HttpServletResponse）
+都已经被绑定到ThreadLocal中，可以通过如下代码获取：
+
+{{{
+ActionContext ctx = ActionContext.getActionContext();
+ServletContext servletContext = ctx.getServletContext();
+HttpSession httpSession = ctx.getHttpSession();
+HttpServletRequest httpServletRequest = ctx.getHttpServletRequest();
+HttpServletResponse httpServletResponse = ctx.getHttpServletResponse();
+}}}
+
+== 如何设定字符编码 ==
+
+WebWind默认总是使用UTF-8作为缺省编码，可以直接支持国际化应用。
+
+如果希望指定字符编码，使用TextRenderer：
+
+{{{
+@Mapping("/hello")
+public Renderer hello() {
+    return new TextRenderer("<h1>Hello, world</h1>", "iso-8859-1");
+}
+}}}
+
+如果使用JSP，需要在JSP文件中设置字符编码：
+
+{{{
+<%@page contentType="text/html;charset=UTF-8" %>
+}}}
+
+请注意，根据JSP规范，JSP的缺省编码是ISO-8859-1。
+
+如果使用Velocity，缺省编码在配置文件/WEB-INF/velocity.properties中指定：
+
+{{{
+# the velocity template file encoding:
+input.encoding=UTF-8
+
+# the output encoding:
+output.encoding=UTF-8
+}}}
+
+如果没有指定编码，WebWind将自动使用UTF-8作为input.encoding和output.encoding的设置。
+
+== 如何生成动态文本内容 ==
+
+使用TextRenderer可以输出任意动态文本：
+
+{{{
+@Mapping("/hello/$1")
+public Renderer alert(String name) {
+    TextRenderer renderer = new TextRenderer("hello, " + name + "!");
+    renderer.setContentType("text/plain");
+    return renderer;
+}
+}}}
+
+如果希望输出JavaScript，使用JavaScriptRender可以自动设置类型为“application/x-javascript”。
+
+== 如何生成动态二进制内容 ==
+
+如果希望输出动态二进制内容，如PDF，JPG等，使用BinaryRender：
+
+{{{
+@Mapping("/download/pdf")
+public Renderer download() {
+    byte[] data = generateBinaryContent(); // build your binary content here
+    BinaryRenderer renderer = new BinaryRenderer(data);
+    renderer.setContentType("application/pdf");
+    return renderer;
+}
+}}}
+
+如果没有设置类型，对二进制内容，WebWind将使用缺省的MIME类型“application/octet-stream”。
+
+== 如何重定向 ==
+
+无需访问HttpServletResponse对象，可以简单地返回一个以“redirect:”开头的字符串：
+
+{{{
+@Mapping("/redirect")
+public String redirect() {
+    return "redirect:/index.jsp";
+}
+}}}
+
+== 如何注入ServletContext对象 ==
+
+如果使用Guice作为IoC容器，由于某种原因，你可能想要注入ServletContext对象：
+
+{{{
+public class MyClass {
+    @Inject ServletContext servlectContext;
+}
+}}}
+
+可以让你的Module实现org.expressme.wind.guice.ServletContextAware接口，
+WebWind就会自动调用setServletContext(ServletContext)方法，将一个ServletContext实例传入：
+
+{{{
+public class MyModule implements Module, org.expressme.wind.guice.ServletContextAware {
+
+    private ServletContext servletContext;
+
+    public void setServletContext(ServletContext servletContext) {
+        this.servletContext = servletContext;
+    }
+
+    public void configure(Binder binder) {
+        // bind the ServletContext:
+        binder.bind(ServletContext.class).toInstance(this.servletContext);
+        // bind others...
+    }
+}
+}}}
+
+如果使用Spring，只需实现Spring的[http://static.springsource.org/spring/docs/2.5.x/api/org/springframework/web/context/ServletContextAware.html ServletContextAware]接口：
+
+{{{
+public class MyClass implements org.springframework.web.context.ServletContextAware {
+
+    private ServletContext servletContext;
+
+    public void setServletContext(ServletContext servletContext) {
+        this.servletContext = servletContext;
+    }
+}
+}}}
+
+== 更新中 ==
+
+如果有更多问题，请直接发表留言。

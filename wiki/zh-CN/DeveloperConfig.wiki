@@ -1,0 +1,127 @@
+#summary WebWind配置
+
+= 需求 =
+
+WebWind需要：
+
+  * Java 5或更高版本。
+  * Servlet 2.4兼容的Web服务器（或更高版本）。
+  * 一个IoC容器，例如[http://www.springsource.org/ Spring]或[http://code.google.com/p/google-guice/ Guice]。
+
+WebWind*不*管理任何Web组件，而是从IoC容器中获取所有实例。
+
+= 配置 =
+
+WebWind的配置非常简单，请按照以下步骤：
+
+== 在web.xml中声明DispatcherServlet ==
+
+首先，请在web.xml中添加一个Servlet的声明：
+
+{{{
+<servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.expressme.webwind.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>container</param-name>
+        <param-value>Guice</param-value>
+    </init-param>
+    <init-param>
+        <param-name>modules</param-name>
+        <param-value>org.expressme.sample.BlogModule</param-value>
+    </init-param>
+    <init-param>
+        <param-name>template</param-name>
+        <param-value>Velocity</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+}}}
+
+请注意，所有参数均是*大小写敏感*的。
+
+参数“container”用于指定您使用的IoC容器，WebWind内置支持两种IoC容器：Spring和Guice。
+
+如果希望使用其他IoC容器，可以指定完整的类名。请参考[DeveloperExtension#集成第三方IoC容器 如何集成其他IoC容器].
+
+The parameter `template` is used to specify how to render the web page. WebWind 
+supports two build-in templates `Jsp` and `Velocity`.
+
+The `Jsp` is the default template. If you specify [http://velocity.apache.org/ Velocity] 
+as template engine, another `velocity.properties` file is needed and must be put in `/WEB-INF/`.
+
+If you want to use other template engine such as [http://freemarker.sourceforge.net/ FreeMarker], 
+see [DeveloperExtension#Integration_of_3rd-part_Template_Engine how to integrate other template engines].
+
+`<load-on-startup>` is the standard option in Servlet configurations. Setting to 
+`0` to make web server initialize the Servlet on startup immediately.
+
+It is very important that the `url-pattern` *MUST* be set to `/` in `servlet-mapping` 
+section. [http://struts.apache.org/ Struts] (or other similiar MVC framework) 
+uses `*.do` as URL mapping, but WebWind gives you completely freedom to 
+organize your URL structure. Such URLs are supported:
+
+  * /blog/display/20090909
+  * /post/2009/09/09/12345.html
+  * /user/1002/35af98c260_1.js
+
+So the URL `/` MUST be mapped to the DispatcherServlet provided by WebWind.
+
+If you choose Guice as your IoC container, the `module` parameter is needed, 
+and its value specify the full class name of module required by Guice.
+
+If you choose Spring as your IoC container, you need add following section into 
+`web.xml` to start Spring before WebWind loaded:
+
+{{{
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+}}}
+
+The default configuration file of Spring is `applicationContext.xml` which should 
+be put in `/WEB-INF/`.
+
+That's all configurations! No extra configuration files!
+
+Continue with first [DeveloperHello 'Hello, world'] application.
+
+== Alternative Declaration ==
+
+If you already have a default `Servlet` which is mapped to `/`, WebWind 
+provides another choose of `DispatcherFilter`. The declaration is just like 
+the `DispatcherServlet`:
+
+{{{
+<filter>
+    <filter-name>dispatcher</servlet-name>
+    <filter-class>org.expressme.webwind.DispatcherFilter</servlet-class>
+    <init-param>
+        <param-name>container</param-name>
+        <param-value>Guice</param-value>
+    </init-param>
+    <init-param>
+        <param-name>modules</param-name>
+        <param-value>org.expressme.sample.BlogModule</param-value>
+    </init-param>
+    <init-param>
+        <param-name>template</param-name>
+        <param-value>Velocity</param-value>
+    </init-param>
+</filter>
+
+<filter-mapping>
+    <filter-name>dispatcher</servlet-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+}}}
+
+The only differences are:
+
+  * No configuration of `<load-on-startup>`.
+  * The value of `<url-pattern>` are `/*`, not `/`.

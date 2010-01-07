@@ -1,0 +1,15 @@
+#summary 下载WebWind
+
+= 下载 =
+
+可以从以下地址下载含源代码的WebWind包：[http://code.google.com/p/webwind/downloads/list]
+
+并将WebWind.jar放入/WEB-INF/lib/目录中。
+
+如果要获取最新源代码，请用SVN从以下地址检出：[http://webwind.googlecode.com/svn/trunk/WebWind]
+
+= 依赖 =
+
+WebWind仅依赖[http://commons.apache.org/logging/ Commons Logging]。
+
+基于你使用的IoC容器，可能需要[http://code.google.com/p/google-guice/ Guice]或[http://www.springsource.org/ Spring]。更多信息请参考[DeveloperIoC 选择IoC容器]。

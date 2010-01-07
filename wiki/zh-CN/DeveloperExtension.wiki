@@ -1,0 +1,9 @@
+#summary 如何扩展WebWind
+
+= 集成第三方IoC容器 =
+
+WebWind内置支持两种IoC容器：Guice和Spring，但是，您也可以使用任何您喜爱的IoC容器，请参考[DeveloperIoC#需要支持更多IoC容器 需要支持更多IoC容器]。
+
+= 集成第三方模板引擎 =
+
+WebWind内置支持两种模板引擎：Jsp和Velocity，但是，您也可以使用任何您喜爱的模板引擎，请参考[DeveloperTemplate#需要支持更多模板引擎 需要支持更多模板引擎]。

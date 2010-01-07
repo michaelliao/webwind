@@ -1,0 +1,19 @@
+#summary Handle Exception
+
+= 处理Exception =
+
+当处理一个HTTP请求抛出Exception时，ExceptionHandler可以处理所有Exception。你需要在IoC容器中实例化一个ExceptionHandler：
+
+{{{
+public class MyExceptionHandler implements ExceptionHandler {
+    public void handle(HttpServletRequest request, HttpServletResponse response, Exception e) throws Exception {
+        // TODO: handle exception or re-throw it...
+    }
+}
+}}}
+
+WebWind会自动检测到ExceptionHandler。如果没有定义任何ExceptionHandler，一个DefaultExceptionHandler将被使用。
+它不做任何事情，仅仅打印出异常堆栈，供调试使用。如果定义了多个ExceptionHandler，WebWind仅使用第一个，并忽略其他的ExceptionHandler。
+请注意，不能假定IoC容器中JavaBean是按某种顺序排列的。
+
+推荐自定义ExceptionHandler，对于处理未登录的重定向非常有用。
