@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Build WebWind Demo" default="dist" basedir=".">
+
+    <description>Build WebWind Demo</description>
+
+    <property name="war.file" value="webwind-demo.war" />
+
+    <property name="src.dir"   value="src" />
+    <property name="lib.dir"   value="lib" />
+    <property name="web.dir"   value="web" />
+    <property name="build.dir" value="${web.dir}/WEB-INF/classes" />
+
+    <!-- classpath definition -->
+    <path id="build-classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+        <fileset dir="${web.dir}/WEB-INF/lib">
+            <include name="**/*.jar" />
+        </fileset>
+        <pathelement path="${build.dir}" />
+        <pathelement path="${src.dir}" />
+    </path>
+
+    <!-- clean all built class file and config file -->
+    <target name="clean">
+        <delete file="${war.file}" />
+        <delete dir="${build.dir}" />
+    </target>
+
+    <!-- compile all java source files -->
+    <target name="build" depends="clean">
+        <mkdir dir="${build.dir}" />
+        <javac destdir="${build.dir}" target="1.5" encoding="utf-8" deprecation="on" debug="on" debuglevel="lines,vars,source">
+            <src path="${src.dir}" />
+            <classpath refid="build-classpath" />
+        </javac>
+    </target>
+
+    <target name="dist" depends="build">
+        <jar destfile="${war.file}" basedir="${web.dir}">
+            <fileset dir="${src.dir}" />
+        </jar>
+    </target>
+
+</project>

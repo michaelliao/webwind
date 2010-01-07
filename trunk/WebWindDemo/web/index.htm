@@ -1,0 +1,17 @@
+<html>
+<head>
+  <link href="/blog.css" rel="stylesheet" type="text/css">
+  <title>Blog</title>
+</head>
+<body>
+  <h1>Blog Posts</h1>
+  #foreach($post in $posts)
+  <h3><a href="/blog/display/${post.id}">${post.title}</a></h3>
+  <p><i>Published at ${post.creation}</i></p>
+  <p>${post.content}</p>
+  <p><a href="/blog/update/${post.id}">Edit</a> | <a href="/blog/delete/${post.id}">Delete</a></p>
+  <hr>
+  #end
+  <p><a href="/blog/create">Create New Post</a></p>
+</body>
+</html>

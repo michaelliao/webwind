@@ -1,0 +1,37 @@
+<html>
+<head>
+  <link href="/blog.css" rel="stylesheet" type="text/css">
+  <title>
+  #if(${post.id}==(-1))
+    Create Post
+  #else
+    Edit Post
+  #end
+  </title>
+</head>
+<body>
+  <h1>
+  #if(${post.id}==(-1))
+    Create Post
+  #else
+    Edit Post
+  #end
+  </h1>
+  <form name="edit" action="/blog/edit" method="post">
+  <table width="360" border="0" cellpadding="3" cellspacing="0">
+  <tr>
+    <td width="80" align="right">Title:</td>
+    <td width="268"><input name="title" value="${post.title}" type="text" maxlength="50" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top">Content:</td>
+    <td><textarea name="content" rows="5" style="width:100%">${post.content}</textarea></td>
+  </tr>
+  <tr>
+    <td><input name="id" type="hidden" value="${post.id}"></td>
+    <td><input name="submit" type="submit"></td>
+  </tr>
+  </table>
+  </form>
+</body>
+</html>
