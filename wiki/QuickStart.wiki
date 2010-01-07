@@ -4,7 +4,7 @@
 
 You can get the demo source code of WebWind from 
 [http://webwind.googlecode.com/svn/trunk/WebWindDemo]. Run ant to build the 
-project and get the `sample.war` in `dist` directory. Or you can download the 
+project and get the `webwind-demo.war`. Or you can download the 
 `webwind-demo.war` from [http://webwind.googlecode.com/files/webwind-demo.war].
 
 = Deploy and Run =
