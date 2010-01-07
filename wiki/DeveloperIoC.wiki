@@ -62,7 +62,7 @@ configuration file (usually named as `applicationContext.xml`):
 <bean class="org.expressme.sample.Blog" />
 }}}
 
-See [Config Configurations].
+See [DeveloperConfig Configurations] to get more about configuration of Spring.
 
 = Need More IoC Container Support =
 
