@@ -49,7 +49,7 @@ To use Velocity template, prepare a Velocity template file `index.htm` like:
 </html>
 }}}
 
-See [Config Configurations] to get more about configuration of Velocity.
+See [DeveloperConfig Configurations] to get more about configuration of Velocity.
 
 = Need More Template Engine Support =
 

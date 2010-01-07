@@ -41,7 +41,7 @@ If you want to use Guice as IoC container, you need specify the module class in
 </init-param>
 }}}
 
-See [DeveloperConfig Configurations].
+See [DeveloperConfig Configurations] to get more about configuration of Guice.
 
 And write your module class:
 

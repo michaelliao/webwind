@@ -10,7 +10,7 @@ project and get the `sample.war` in `dist` directory. Or you can download the
 = Deploy and Run =
 
 Deploy the war file in your favorite Java web server such as Tomcat, Resin, 
-Jetty, etc. Run server and see sample pages in browser:
+Jetty, etc. Run server and see sample pages in browser with address [http://localhost:8990/ http://localhost:8990/]:
 
 http://webwind.googlecode.com/svn/wiki/Sample.png
 
