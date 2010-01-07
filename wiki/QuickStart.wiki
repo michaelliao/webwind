@@ -14,4 +14,4 @@ Jetty, etc. Run server and see sample pages in browser with address [http://loca
 
 http://webwind.googlecode.com/svn/wiki/Sample.png
 
-Note that you may change the port of URL.
+Note that you may change the URL by your deployment.
