@@ -1,19 +1,15 @@
-#summary About the author
+#summary 关于作者
 
-= Michael Liao =
+= 廖雪峰 =
 
-Michael Liao has 5-year JavaEE development experiences, and also work with a 
-wide variety of technologies including Visual Basic, C# and Python. He published 
-several articles in BEA dev2dev China and IBM developerWorks China. His 
-"[http://www.livebookstore.net Spring 2.0 Core Technology and Best Practices]" 
-is one of the popular Java books in China:
+廖雪峰拥有5年以上JavaEE开发经验，并且熟悉许多其他编程语言，包括Visual Basic，C#和Python。他曾在BEA dev2dev中国站点和IBM developerWorks中国站点发表过多篇文章，他编写的《[http://www.china-pub.com/34820 Spring 2.0核心技术与最佳实践]》是中国流行的Java书籍之一：
 
 http://express-me.googlecode.com/svn/wiki/Spring2.png
 
-His official blogs are:
+他的官方博客是：
 
-Chinese: [http://www.liaoxuefeng.com]
+中文：[http://www.liaoxuefeng.com]
 
-English: [http://michael.liaoxuefeng.com]
+英文：[http://michael.liaoxuefeng.com]
 
-You can [mailto:askxuefeng@gmail.com send mail to him].
+可以[mailto:askxuefeng@gmail.com 发送邮件]联系他。

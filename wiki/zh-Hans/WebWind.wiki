@@ -1,26 +1,21 @@
-#summary Introduction about WebWind
+#summary WebWind简介
 #labels Featured
 
-= Introduction =
+= 介绍 =
 
-WebWind is an MVC framework for Java web applications. Unlike most MVC 
-frameworks such as Struts, WebWind does support friendly URL directly. 
-Web applications can be more friendly to search engine, and more simple.
+WebWind是一个Java MVC框架。和常见的MVC框架如Struts不同，WebWind天生支持用户友好的URL，让Web应用程序对搜索引擎更加友好，开发更简单。
 
-= Features =
+= 功能 =
 
-WebWind provides many effective and simple way to make development of 
-web application become easier.
+WebWind提供了非常高效但却简单的方法来简化Web应用程序的开发：
 
-  * Friendly URL support like '/blog/display/20090909'.
-  * Handling HTTP request in your defined method.
-  * Support Interceptor to handle transaction, logging and something else.
-  * Support ExceptionHandler to handle exception in a central control.
-  * Support file upload.
+  * 友好的URL支持，例如“/blog/display/20090909”。
+  * 将HTTP处理映射到自定义的方法。
+  * 支持拦截器以便处理事务、日志等功能。
+  * 支持ExceptionHandler实现统一的异常处理入口。
+  * 支持文件上传。
 
-Unlike [http://struts.apache.org/ Struts] or other MVC frameworks, WebWind 
-does not require any particular interface known as `Action` or `Controller`. 
-You can define your own methods to handle URL you defined:
+和[http://struts.apache.org/ Struts]等传统MVC框架不同，WebWind不需要开发者实现特定的接口如 “Action”或“Controller”。你可以简单地直接在任何类中定义不同方法来处理URL：
 
 {{{
 public class Blog {
@@ -37,4 +32,4 @@ public class Blog {
 }
 }}}
 
-See [Developer Developer's Guide] to get more details about WebWind.
+请参考[Developer 开发者指南]以获得更多关于WebWind的信息。
