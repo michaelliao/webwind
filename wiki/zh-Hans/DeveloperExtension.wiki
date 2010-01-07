@@ -2,8 +2,8 @@
 
 = 集成第三方IoC容器 =
 
-WebWind内置支持两种IoC容器：Guice和Spring，但是，您也可以使用任何您喜爱的IoC容器，请参考[DeveloperIoC#需要支持更多IoC容器 需要支持更多IoC容器]。
+WebWind内置支持两种IoC容器：Guice和Spring，但是，您也可以使用任何您喜爱的IoC容器，请参考[DeveloperIoC#%E9%9C%80%E8%A6%81%E6%94%AF%E6%8C%81%E6%9B%B4%E5%A4%9AIoC%E5%AE%B9%E5%99%A8 需要支持更多IoC容器]。
 
 = 集成第三方模板引擎 =
 
-WebWind内置支持两种模板引擎：Jsp和Velocity，但是，您也可以使用任何您喜爱的模板引擎，请参考[DeveloperTemplate#需要支持更多模板引擎 需要支持更多模板引擎]。
+WebWind内置支持两种模板引擎：Jsp和Velocity，但是，您也可以使用任何您喜爱的模板引擎，请参考[DeveloperTemplate#%E9%9C%80%E8%A6%81%E6%94%AF%E6%8C%81%E6%9B%B4%E5%A4%9A%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E 需要支持更多模板引擎]。

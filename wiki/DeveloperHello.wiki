@@ -63,4 +63,4 @@ public class MyPage {
 }
 }}}
 
-Let's get into the details of [Mapping URL mapping].
+Let's get into the details of [DeveloperMapping URL mapping].

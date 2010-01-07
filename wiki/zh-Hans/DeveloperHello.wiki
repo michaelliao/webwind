@@ -1,8 +1,8 @@
-#summary Write 'Hello, world' application
+#summary 编写'Hello, world'应用
 
 = Hello, world =
 
-The WebWind version of 'Hello, world' sample is very simple. See:
+WebWind版本的'Hello, world'非常简单：
 
 {{{
 import org.expressme.webwind.Mapping;
@@ -16,19 +16,15 @@ public class MyPage {
 }
 }}}
 
-Note that WebWind does NOT require any framework-provided interface known 
-as Action or Controller. URL mapping is defined on method by Java 5 annotation.
+注意到不需要任何框架提供的如Action或Controller之类的接口。URL映射通过Java 5的注解直接定义在方法上。
 
-Now make sure this JavaBean is managed by your IoC container. Start web server 
-and see web page in browser:
+确保该JavaBean被你的IoC容器管理。启动Web服务器就可以在浏览器中看到如下Web页面：
 
 http://webwind.googlecode.com/svn/wiki/Hello.png
 
-= Passing parameters =
+= 传递参数 =
 
-Let's do little extension to make it say 'Hello' to everyone. You can do it by 
-adding a parameter like `/hello?name=michael`, and handle the parameter by yourself 
-in old-style MVC frameworks. But is it simple and friendly if URL is `/hello/michael`:
+让我们做一个小小的扩展，让这个应用程序能向所有人说'Hello'。你可以直接在URL后添加一个参数，例如，`/hello?name=michael`，并在旧式的MVC框架中处理参数。不过，`/hello/michael`这样的URL看起来是不是更简单：
 
 {{{
 @Mapping("/hello/$1")
@@ -37,14 +33,13 @@ public String hello(String name) {
 }
 }}}
 
-The web page in browser is shown as follow:
+现在，Web页面显示如下：
 
 http://webwind.googlecode.com/svn/wiki/HelloMichael.png
 
-You may guess that the `$1` is the parameter in URL and passed automatically to 
-the first argument `name` in method `hello(String)`. That's right.
+你也许已经猜到了，URL中的`$1`将被自动赋值到方法`hello(String)`的第一个参数`name`变量中。完全正确！
 
-The two methods can be placed together, both works well:
+以上两个方法还可以合并到一起，不会产生冲突：
 
 {{{
 import org.expressme.webwind.Mapping;
@@ -63,4 +58,4 @@ public class MyPage {
 }
 }}}
 
-Let's get into the details of [Mapping URL mapping].
+让我们继续深入[DeveloperMapping 如何映射URL]。
