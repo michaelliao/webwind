@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * 
  * @author Michael Liao (askxuefeng@gmail.com)
  */
-class Execution {
+public class Execution {
 
     public final HttpServletRequest request;
     public final HttpServletResponse response;
