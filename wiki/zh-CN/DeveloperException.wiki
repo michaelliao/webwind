@@ -1,6 +1,6 @@
-#summary Handle Exception
+#summary 处理异常
 
-= 处理Exception =
+= 处理异常 =
 
 当处理一个HTTP请求抛出Exception时，ExceptionHandler可以处理所有Exception。你需要在IoC容器中实例化一个ExceptionHandler：
 

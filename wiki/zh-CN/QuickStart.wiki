@@ -1,6 +1,6 @@
-#summary Quick start of WebWind
+#summary 快速入门
 
-= Quick Start =
+= 快速入门 =
 
 You can get the demo source code of WebWind from 
 [http://webwind.googlecode.com/svn/trunk/WebWindDemo]. Run ant to build the 
