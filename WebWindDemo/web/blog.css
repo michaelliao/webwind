@@ -1,0 +1,9 @@
+h1 { font-size:24px; font-weight:bold; margin:3px; padding:3px; }
+
+h3 { font-size:14px; font-weight:bold; margin:3px; padding:3px; }
+
+body { font-family:Tahoma, Geneva, sans-serif; }
+
+body, p, td { font-size:12px; font-weight:normal; margin:5px; padding:3px; }
+
+hr { margin:0; width:100%; border-width:1px; color:#069; }
