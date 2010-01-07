@@ -1,6 +1,6 @@
-#summary How to handle URL
+#summary 处理URL
 
-= Handle URL =
+= 处理URL =
 
 As you see, WebWind does not require any particular interface, and allows 
 multiple methods put together in one class. Each method can handle one URL 
@@ -50,14 +50,14 @@ public void handle(long userId, int postId) throws Exception {
 }
 }}}
 
-= Supported Types of Arguments =
+= 支持的参数类型 =
 
 Not all the Java types of arguments of method can be supported, because 
 WebWind must convert the string to the particular Java type of argument. 
 The build-in supported types are `java.lang.String` and all primitive types 
 as well as its wrapper types (int, Integer, boolean, Boolean, etc.).
 
-|| *Type* || *Convertion* || *Exception* ||
+|| 类型 || 转换 || 异常 ||
 || java.lang.String || The same || none ||
 || boolean, Boolean || Boolean.valueOf(String) || none ||
 || char, Character || String.charAt(0) || IllegalArgumentException ||

@@ -1,14 +1,10 @@
-#summary Handle File Upload
+#summary 处理文件上传
 
-= Handle File Upload =
+= 处理文件上传 =
 
-WebWind supports file upload by integration of 
-[http://commons.apache.org/fileupload/ Commons FileUpload]. You don't need any 
-configuration but just place the `commons-fileupload-1.2.x.jar` into 
-`/WEB-INF/lib/`. File upload feature is disabled if commons-fileupload cannot 
-be found under `/WEB-INF/lib/`.
+WebWind通过集成[http://commons.apache.org/fileupload/ Commons FileUpload]支持文件上传。无需任何配置，只需将`commons-fileupload-1.2.x.jar`放入`/WEB-INF/lib/`目录下即可。如果没有找到Commons FileUpload，文件上传功能就被禁用。
 
-It is very simple to handle file upload:
+处理文件上传非常简单：
 
 {{{
 public class FileUpload {
@@ -30,6 +26,6 @@ public class FileUpload {
 }
 }}}
 
-Normal form fields can still be retrieved by `HttpServletRequest.getParameter(String)`.
+普通的Form字段可以通过`HttpServletRequest.getParameter(String)`正常读取。
 
-*NOTE* that WebWind only supports [http://commons.apache.org/fileupload/ Commons FileUpload] *1.2.0* or above.
+请注意，WebWind仅支持[http://commons.apache.org/fileupload/ Commons FileUpload] 1.2.0或更高版本。

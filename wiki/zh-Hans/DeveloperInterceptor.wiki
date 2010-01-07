@@ -1,6 +1,6 @@
-#summary Using Interceptor
+#summary 使用拦截器
 
-= Using Interceptor =
+= 使用拦截器 =
 
 Interceptors are like Servlet Filters somehow, but they are managed by IoC 
 container. WebWind will get all interceptors from IoC container automatically. 

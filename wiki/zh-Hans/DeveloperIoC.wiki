@@ -29,7 +29,7 @@ The scope of JavaBeans in IoC container can be either `singleton` or `prototype`
 but make sure they are stateless, because WebWind will hold the references 
 of these beans and treat them as singleton.
 
-= Using Guice =
+= 使用Guice =
 
 If you want to use Guice as IoC container, you need specify the module class in 
 `web.xml`:
@@ -53,7 +53,7 @@ public class BlogModule implements Module {
 }
 }}}
 
-= Using Spring =
+= 使用Spring =
 
 If you want to use Spring as IoC container, you need declare the beans in Spring 
 configuration file (usually named as `applicationContext.xml`):
