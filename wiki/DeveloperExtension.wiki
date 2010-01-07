@@ -8,4 +8,6 @@ can use any IoC container you like. See
 
 = Integration of 3rd-part Template Engine =
 
-TODO...
+WebWind supports two build-in template engines: Jsp and Velocity, but you 
+can use any template engine you like. See 
+[DeveloperTemplate#Need_More_Template_Engine_Support Need More Template Engine Support].
