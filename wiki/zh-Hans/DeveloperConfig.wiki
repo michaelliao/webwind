@@ -8,7 +8,7 @@ WebWind需要：
   * Servlet 2.4兼容的Web服务器（或更高版本）。
   * 一个IoC容器，例如[http://www.springsource.org/ Spring]或[http://code.google.com/p/google-guice/ Guice]。
 
-WebWind*不*管理任何Web组件，而是从IoC容器中获取所有实例。
+WebWind不管理任何Web组件，而是从IoC容器中获取所有实例。
 
 = 配置 =
 
@@ -49,11 +49,9 @@ WebWind的配置非常简单，请按照以下步骤：
 
 如果希望使用其他IoC容器，可以指定完整的类名。请参考[DeveloperExtension#集成第三方IoC容器 如何集成其他IoC容器].
 
-The parameter `template` is used to specify how to render the web page. WebWind 
-supports two build-in templates `Jsp` and `Velocity`.
+参数template用于指定如何渲染页面，WebWind内置支持两种模板：Jsp和Velocity。
 
-The `Jsp` is the default template. If you specify [http://velocity.apache.org/ Velocity] 
-as template engine, another `velocity.properties` file is needed and must be put in `/WEB-INF/`.
+Jsp是缺省的模板。如果指定[http://velocity.apache.org/ Velocity]作为模板，则还需要在/WEB-INF/目录下放置一个velocity.properties的配置文件。
 
 If you want to use other template engine such as [http://freemarker.sourceforge.net/ FreeMarker], 
 see [DeveloperExtension#Integration_of_3rd-part_Template_Engine how to integrate other template engines].
