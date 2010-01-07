@@ -47,7 +47,7 @@ WebWind的配置非常简单，请按照以下步骤：
 
 参数“container”用于指定您使用的IoC容器，WebWind内置支持两种IoC容器：Spring和Guice。
 
-如果希望使用其他IoC容器，可以指定完整的类名。请参考[DeveloperExtension#集成第三方IoC容器 如何集成其他IoC容器].
+如果希望使用其他IoC容器，可以指定完整的类名。请参考[DeveloperExtension#%E9%9B%86%E6%88%90%E7%AC%AC%E4%B8%89%E6%96%B9IoC%E5%AE%B9%E5%99%A8 如何集成其他IoC容器].
 
 参数template用于指定如何渲染页面，WebWind内置支持两种模板：Jsp和Velocity。
 
