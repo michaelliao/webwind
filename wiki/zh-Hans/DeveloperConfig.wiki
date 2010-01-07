@@ -53,28 +53,21 @@ WebWind的配置非常简单，请按照以下步骤：
 
 Jsp是缺省的模板。如果指定[http://velocity.apache.org/ Velocity]作为模板，则还需要在/WEB-INF/目录下放置一个velocity.properties的配置文件。
 
-If you want to use other template engine such as [http://freemarker.sourceforge.net/ FreeMarker], 
-see [DeveloperExtension#Integration_of_3rd-part_Template_Engine how to integrate other template engines].
+如果希望使用其他模板引擎，例如[http://freemarker.sourceforge.net/ FreeMarker]，请参考[DeveloperExtension#集成第三方模板引擎 如何集成第三方模板引擎]。
 
-`<load-on-startup>` is the standard option in Servlet configurations. Setting to 
-`0` to make web server initialize the Servlet on startup immediately.
+`<load-on-startup>`是标准的Servlet配置，设置为0可以强制Web服务器立即加载并初始化该Servlet。
 
-It is very important that the `url-pattern` *MUST* be set to `/` in `servlet-mapping` 
-section. [http://struts.apache.org/ Struts] (or other similiar MVC framework) 
-uses `*.do` as URL mapping, but WebWind gives you completely freedom to 
-organize your URL structure. Such URLs are supported:
+非常重要的一点是，在servlet-mapping中，必须将“/”映射到DispatcherServlet。和[http://struts.apache.org/ Struts]（或其他MVC框架）映射`*.do`不同，WebWind让你完全控制并管理URL结构。以下URL均被支持：
 
   * /blog/display/20090909
   * /post/2009/09/09/12345.html
   * /user/1002/35af98c260_1.js
 
-So the URL `/` MUST be mapped to the DispatcherServlet provided by WebWind.
+因此，必须将`/`映射到WebWind提供的DispatcherServlet。
 
-If you choose Guice as your IoC container, the `module` parameter is needed, 
-and its value specify the full class name of module required by Guice.
+如果你使用Guice作为IoC容器，则module参数是必须的，它指定了Guice需要的Module的完整类名。
 
-If you choose Spring as your IoC container, you need add following section into 
-`web.xml` to start Spring before WebWind loaded:
+如果你使用Spring作为IoC容器，则需要添加以下配置到web.xml中，以便在WebWind启动前加载Spring：
 
 {{{
 <listener>
@@ -82,18 +75,15 @@ If you choose Spring as your IoC container, you need add following section into
 </listener>
 }}}
 
-The default configuration file of Spring is `applicationContext.xml` which should 
-be put in `/WEB-INF/`.
+Spring默认的配置文件`applicationContext.xml`必须放置到`/WEB-INF/`目录下。
 
-That's all configurations! No extra configuration files!
+以上就是所有的配置！无需额外的配置文件！
 
-Continue with first [DeveloperHello 'Hello, world'] application.
+继续学习第一个[DeveloperHello 'Hello, world']应用程序。
 
-== Alternative Declaration ==
+== 另一种替代方案 ==
 
-If you already have a default `Servlet` which is mapped to `/`, WebWind 
-provides another choose of `DispatcherFilter`. The declaration is just like 
-the `DispatcherServlet`:
+如果你已经将`/`映射到了某个Servlet，WebWind还提供了另一个DispatcherFilter，可以替代DispatcherServlet：
 
 {{{
 <filter>
@@ -119,7 +109,7 @@ the `DispatcherServlet`:
 </filter-mapping>
 }}}
 
-The only differences are:
+区别在于：
 
-  * No configuration of `<load-on-startup>`.
-  * The value of `<url-pattern>` are `/*`, not `/`.
+  * 没有`<load-on-startup>`配置。
+  * 参数`<url-pattern>`是`/*`而不是`/`。
