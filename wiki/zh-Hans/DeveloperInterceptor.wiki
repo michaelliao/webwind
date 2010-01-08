@@ -2,11 +2,9 @@
 
 = 使用拦截器 =
 
-Interceptors are like Servlet Filters somehow, but they are managed by IoC 
-container. WebWind will get all interceptors from IoC container automatically. 
-Interceptor can be used to do transaction, logging, and other things.
+拦截器（Interceptor）和Servlet规范的Filter类似，但是，拦截器由IoC容器管理。WebWind自动从IoC容器中查找所有的拦截器。拦截器可以用来实现事务、日志等功能。
 
-It is easy to define an interceptor:
+定义一个拦截器非常简单：
 
 {{{
 import org.expressme.webwind.*;
@@ -26,9 +24,6 @@ public class PerformanceInterceptor implements Interceptor {
 }
 }}}
 
-But don't forget to call `chain.doInterceptor(execution)`, otherwise the process 
-of HTTP request cannot be continued to next interceptor and the method which 
-handles URL.
+但是不要忘记调用`chain.doInterceptor(execution)`，否则，处理HTTP请求的过程将终止。
 
-More than one interceptors are linked as a chain. `@InterceptorOrder` is used to 
-specify the orders of interceptors. The lower value has higher priority.
+一个以上的拦截器组成拦截器链。`@InterceptorOrder`用于指定每个拦截器的顺序，数字小的拦截器排在前面。

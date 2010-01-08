@@ -2,17 +2,14 @@
 
 = 使用模板 =
 
-As a demonstration, you can return a String that contains HTML like 
-`<html><body>Hello, world!</body></html>`. But in real world, the complex web 
-pages are rendered by kinds of template engines. WebWind supports two 
-build-in template engines: JSP and [http://velocity.apache.org/ Velocity].
+作为示例，可以直接返回一个简单的HTML如`<html><body>Hello, world!</body></html>`。不过，在真实世界中，复杂的Web页面通常由各种模板引擎生成。WebWind内置支持两种模板引擎：JSP和[http://velocity.apache.org/ Velocity]。
 
-Rendering web pages by template in WebWind is simple:
+在WebWind中渲染一个模板是非常简单的：
 
-  # Put all data into a `Map<String, Object>` as model;
-  # Create a TemplateRenderer and return.
+  # 将所有数据放入`Map<String, Object>`中作为模型；
+  # 创建一个TemplateRenderer并返回。
 
-See example bellow:
+参考下面的例子：
 
 {{{
 public class IndexPage {
@@ -27,8 +24,7 @@ public class IndexPage {
 }
 }}}
 
-If you configure nothing about template, the default template engine `JSP` is 
-used. For example, the `index.jsp` for code above should be like:
+如果没有配置任何模板，缺省的模板引擎是JSP。例如，上面的代码对应的模板`index.jsp`的内容看起来像这样：
 
 {{{
 <html>
@@ -39,7 +35,7 @@ used. For example, the `index.jsp` for code above should be like:
 </html>
 }}}
 
-To use Velocity template, prepare a Velocity template file `index.htm` like:
+如果使用Velocity作为模板，需要准备一个Velocity模板文件，例如，`index.htm`：
 
 {{{
 <html>
@@ -49,15 +45,13 @@ To use Velocity template, prepare a Velocity template file `index.htm` like:
 </html>
 }}}
 
-See [DeveloperConfig Configurations] to get more about configuration of Velocity.
+参考[DeveloperConfig 配置]以获得更多关于Velocity的配置信息。
 
 = 需要支持更多模板引擎 =
 
-If you want to use any other template engine rather than Jsp or Velocity, you 
-need additional work to do.
+如果你需要使用除JSP和Velocity之外的其他模板，你需要更多的工作。
 
-WebWind allows you to add any template engine (such as [http://freemarker.org/ FreeMarker], etc) 
-by writing your own `TemplateFactory` class. For example:
+WebWind允许你使用任何模板引擎（例如[http://freemarker.org/ FreeMarker]等），通过编写自定义的`TemplateFactory`来实现。例如：
 
 {{{
 package sample;
@@ -76,12 +70,9 @@ public class MyTemplateFactory implements TemplateFactory {
 }
 }}}
 
-You need implement two methods above. It is easy for experienced developers. See 
-[http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/template/JspTemplateFactory.java JspTemplateFactory.java] 
-and [http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/template/VelocityTemplateFactory.java VelocityTemplateFactory.java] 
-as examples.
+你需要实现以上两个方法。对于有经验的开发人员来说这很容易。参考[http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/template/JspTemplateFactory.java JspTemplateFactory.java]和[http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/template/VelocityTemplateFactory.java VelocityTemplateFactory.java]作为示例。
 
-And also `MyTemplate` class must be inherited from `Template`:
+还需要实现`MyTemplate`类，并且从`Template`派生：
 
 {{{
 package sample;
@@ -110,7 +101,7 @@ public class MyTemplate implements Template {
 }
 }}}
 
-Specify your own template engine in `web.xml` with *FULL CLASS NAME*:
+在`web.xml`中声明你的TemplateFactory的完整类名：
 
 {{{
 <init-param>

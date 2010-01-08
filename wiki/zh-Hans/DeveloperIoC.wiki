@@ -2,13 +2,9 @@
 
 = 选择IoC容器 =
 
-As we discussed, WebWind does *NOT* manage the web components but requests 
-all from IoC container. WebWind supports two build-in IoC container: 
-[http://code.google.com/p/google-guice/ Guice] and [http://www.springsource.org/ Spring].
+正如我们讨论过的，WebWind从不管理任何Web组件，而是向IoC容器请求所有实例。WebWind内置支持两种IoC容器：[http://code.google.com/p/google-guice/ Guice]和[http://www.springsource.org/ Spring]。
 
-All methods with `@Mapping` defined in JavaBeans which are managed by IoC container will 
-be scanned and hold by WebWind. For example, define such class which contains 
-two methods with URL mapping:
+所有被IoC容器管理的组件都将被自动扫描，并提取标记有@Mapping的public方法。例如，定义带有两个URL映射的方法的类：
 
 {{{
 public class Blog {
@@ -25,14 +21,11 @@ public class Blog {
 }
 }}}
 
-The scope of JavaBeans in IoC container can be either `singleton` or `prototype`, 
-but make sure they are stateless, because WebWind will hold the references 
-of these beans and treat them as singleton.
+IoC容器中JavaBean的生命周期可以为Singleton或Prototype，不过要确保其是无状态的，而WebWind总是以Singleton模式持有这些Bean的实例。
 
 = 使用Guice =
 
-If you want to use Guice as IoC container, you need specify the module class in 
-`web.xml`:
+如果你使用Guice作为IoC容器，则需要在`web.xml`中指定Module类：
 
 {{{
 <init-param>
@@ -41,9 +34,9 @@ If you want to use Guice as IoC container, you need specify the module class in
 </init-param>
 }}}
 
-See [DeveloperConfig Configurations] to get more about configuration of Guice.
+参考[DeveloperConfig 配置]以获得更多关于Guice的配置信息。
 
-And write your module class:
+编写Module类：
 
 {{{
 public class BlogModule implements Module {
@@ -55,23 +48,19 @@ public class BlogModule implements Module {
 
 = 使用Spring =
 
-If you want to use Spring as IoC container, you need declare the beans in Spring 
-configuration file (usually named as `applicationContext.xml`):
+如果你使用Spring作为IoC容器，则需要在Spring的配置文件（通常是`applicationContext.xml`）中定义Bean：
 
 {{{
 <bean class="org.expressme.sample.Blog" />
 }}}
 
-See [DeveloperConfig Configurations] to get more about configuration of Spring.
+参考[DeveloperConfig 配置]以获得更多关于Spring的配置信息。
 
 = 需要支持更多IoC容器 =
 
-If you want to use any other IoC container rather than Guice or Spring, you need 
-additional work to do.
+如果你想使用除了Guice和Spring的其他IoC容器，你需要做更多的工作。
 
-WebWind allows you to add any IoC containers (such as [http://hivemind.apache.org/ HiveMind], 
-[http://www.picocontainer.org/ PicoContainer], etc) by writing your own 
-`ContainerFactory` class. For example:
+WebWind允许你使用任何IoC容器（例如[http://hivemind.apache.org/ HiveMind]，[http://www.picocontainer.org/ PicoContainer]等），通过编写自定义的ContainerFactory来实现，例如：
 
 {{{
 package sample;
@@ -90,12 +79,9 @@ public class MyContainerFactory implements ContainerFactory {
 }
 }}}
 
-You need implement two methods above. It is easy for experienced developers. See 
-[http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/container/SpringContainerFactory.java SpringContainerFactory.java] 
-and [http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/container/GuiceContainerFactory.java GuiceContainerFactory.java] 
-as examples.
+你必须实现以上两个方法。对于有经验的开发人员来说很容易，请参考[http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/container/SpringContainerFactory.java SpringContainerFactory.java]和[http://code.google.com/p/express-me/source/browse/trunk/ExpressWind/src/org/expressme/wind/container/GuiceContainerFactory.java GuiceContainerFactory.java]作为示例。
 
-Specify your own container factory in `web.xml` with *FULL CLASS NAME*:
+然后在`web.xml`中声明自定义ContainerFactory的完整类名：
 
 {{{
 <init-param>

@@ -2,16 +2,12 @@
 
 = 快速入门 =
 
-You can get the demo source code of WebWind from 
-[http://webwind.googlecode.com/svn/trunk/WebWindDemo]. Run ant to build the 
-project and get the `webwind-demo.war`. Or you can download the 
-`webwind-demo.war` from [http://webwind.googlecode.com/files/webwind-demo.war].
+可以从[http://webwind.googlecode.com/svn/trunk/WebWindDemo]获取示例应用程序。运行Ant编译工程，就可以获得`webwind-demo.war`。或者，可以直接下载[http://webwind.googlecode.com/files/webwind-demo.war]。
 
 = 部署和运行 =
 
-Deploy the war file in your favorite Java web server such as Tomcat, Resin, 
-Jetty, etc. Run server and see sample pages in browser with address [http://localhost:8990/ http://localhost:8990/]:
+使用任何你喜爱的Java Web服务器如Tomcat、Resin来部署war文件，运行服务器，就可以在浏览器中通过地址[http://localhost:8990/ http://localhost:8990/]看到：
 
 http://webwind.googlecode.com/svn/wiki/Sample.png
 
-Note that you may change the URL by your deployment.
+请注意，根据部署环境的不同，你可能需要修改URL。
