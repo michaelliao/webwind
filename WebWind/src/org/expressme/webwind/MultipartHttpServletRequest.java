@@ -166,9 +166,10 @@ public class MultipartHttpServletRequest extends HttpServletRequestWrapper {
                 if (item.isFormField()) {
                     InputStream input = null;
                     try {
-                        item.openStream();
+                        input = item.openStream();
                         String fieldName = item.getFieldName();
-                        String fieldValue = Streams.asString(input);
+                        String encode = request.getCharacterEncoding();
+                        String fieldValue = encode==null ? Streams.asString(input) : Streams.asString(input, encode);
                         addFormItem(fieldName, fieldValue);
                     }
                     finally {
