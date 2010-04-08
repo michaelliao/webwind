@@ -210,7 +210,10 @@ class Dispatcher {
         String path = req.getContextPath();
         if (path.length()>0)
             url = url.substring(path.length());
-        if(log.isDebugEnabled())
+        // set default character encoding to "utf-8" if encoding is not set:
+        if (req.getCharacterEncoding()==null)
+            req.setCharacterEncoding("UTF-8");
+        if (log.isDebugEnabled())
             log.debug("Handle for URL: " + url);
         Execution execution = null;
         for (UrlMatcher matcher : this.urlMatchers) {
