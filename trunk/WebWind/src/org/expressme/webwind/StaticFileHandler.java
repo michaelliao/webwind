@@ -51,7 +51,7 @@ class StaticFileHandler {
 
     public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getRequestURI();
-        String path = request.getServletPath();
+        String path = request.getContextPath();
         url = url.substring(path.length());
         if (url.toUpperCase().startsWith("/WEB-INF/")) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
